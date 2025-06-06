@@ -1,0 +1,639 @@
+@keyframes po {
+    0% {
+        background-color: rgba(255, 255, 255, 0);
+    }
+
+    50% {
+        background-color: rgb(200, 45, 148);
+    }
+
+    100% {
+        background-color: rgb(255, 0, 204);
+    }
+
+
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 0px 0px #d08787;
+    }
+
+    50% {
+        box-shadow: 0 0 40px 10px #e37fd6f9, 0 0 80px 40px #fd01d3;
+    }
+
+    100% {
+        box-shadow: 0 0 0px 0px #ff0066;
+    }
+}
+@keyframes heart-burst {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) translateY(20px);
+    }
+    20% {
+        opacity: 1;
+        transform: scale(1.2) translateY(-10px);
+    }
+    80% {
+        opacity: 1;
+        transform: scale(1) translateY(-40px);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.8) translateY(-60px);
+    }
+}
+.footer-glow {
+    width: 100vw;
+    text-align: center;
+    padding: 24px 0 16px 0;
+    font-size: 1.5rem;
+    color: #fff;
+    background: transparent;
+    letter-spacing: 2px;
+    font-weight: bold;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 3000;
+    /* เอฟเฟกต์แสงรอบตัวอักษร */
+    text-shadow:
+        0 0 12px #ff00cc,
+        0 0 24px #ff00cc,
+        0 0 36px #fff,
+        0 0 48px #ff00cc;
+    animation: footer-glow-anim 2s infinite alternate;
+}
+
+@keyframes footer-glow-anim {
+    0% {
+        text-shadow:
+            0 0 8px #ff00cc,
+            0 0 16px #ff00cc,
+            0 0 24px #fff,
+            0 0 32px #ff00cc;
+    }
+    100% {
+        text-shadow:
+            0 0 24px #fff,
+            0 0 48px #ff00cc,
+            0 0 64px #fff,
+            0 0 80px #ff00cc;
+    }
+}
+
+
+
+.normal_box.heart-burst::after {
+    content: "❤";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 28px;
+    color: #ff3b8d;
+    opacity: 0;
+    pointer-events: none;
+    animation: heart-burst 0.8s forwards;
+    z-index: 10;
+}
+.normal_box {
+    position: relative;
+   
+}
+#hearts {
+    position: fixed;
+    left: 0; top: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1000;
+}
+.heart {
+    position: absolute;
+    bottom: 0;
+    color: #ff3b8d;
+    animation: heart-float 2s linear forwards;
+    left: 50vw;
+    opacity: 0.8;
+    pointer-events: none;
+}
+@keyframes heart-float {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-80vh) scale(1.5);
+        opacity: 0;
+    }
+}
+.heart::after {
+    content: "🐵";
+}
+.flower {
+    position: absolute;
+    bottom: 0;
+    color: #ffe066;
+    animation: flower-float 2.2s linear forwards;
+    left: 50vw;
+    opacity: 0.85;
+    pointer-events: none;
+    font-size: 32px;
+    z-index: 1001;
+}
+@keyframes flower-float {
+    0% {
+        transform: translateY(0) scale(1) rotate(0deg);
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-40vh) scale(1.2) rotate(10deg);
+    }
+    100% {
+        transform: translateY(-90vh) scale(1.5) rotate(30deg);
+        opacity: 0;
+    }
+}
+.flower::after {
+    content: "🤣";
+}
+.firework {
+    position: absolute;
+    left: 50vw;
+    top: 80vh;
+    pointer-events: none;
+    z-index: 2000;
+}
+.firework-dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    opacity: 0.9;
+    animation: firework-dot 1s linear forwards;
+     
+}
+@keyframes firework-dot {
+    0% {
+        transform: translate(0,0) scale(1);
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        transform: var(--move);
+        opacity: 0;
+    }
+}
+
+
+
+
+
+
+
+.glow-effect {
+    animation: glow 1s ease-in-out;
+    z-index: 1;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+}
+
+.container {
+
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+}
+
+.normal_box {
+    width: 25px;
+    height: 25px;
+    border: 1px solid black;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+#box1 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 0.8s;
+}
+
+#box2 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 0.9s;
+}
+
+#box3 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 1s;
+}
+
+#box4 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 1.1s;
+}
+
+#box5 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 1.2s;
+}
+
+#box6 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 1.3s;
+}
+
+#box7 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 1.4s;
+}
+
+#box8 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 1.5s;
+}
+
+#box9 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 1.6s;
+}
+
+#box10 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 1.7s;
+}
+
+#box11 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 1.8s;
+}
+
+#box12 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 1.9s;
+}
+
+#box13 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 2s;
+}
+
+#box14 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 2.1s;
+}
+
+#box15 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 2.2s;
+}
+
+#box16 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 2.3s;
+}
+
+#box17 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 2.4s;
+}
+
+#box18 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 2.5s;
+}
+
+#box19 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 2.6s;
+}
+
+#box20 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 2.7s;
+}
+
+#box21 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 2.8s;
+}
+
+#box22 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 2.9s;
+}
+
+#box23 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 3s;
+}
+
+#box24 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 3.1s;
+}
+
+#box25 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 3.2s;
+}
+
+#box26 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 3.3s;
+}
+
+#box27 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 3.4s;
+}
+
+#box28 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 3.5s;
+}
+
+#box29 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 3.6s;
+}
+
+#box30 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 3.7s;
+}
+
+#box31 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 3.8s;
+}
+
+#box32 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 3.9s;
+}
+
+#box33 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 4s;
+}
+
+#box34 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 4.1s;
+}
+
+#box35 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 4.2s;
+}
+
+#box36 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 4.3s;
+}
+
+#box37 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 4.4s;
+}
+
+#box38 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 4.5s;
+}
+
+#box39 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 4.6s;
+}
+
+#box40 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 4.7s;
+}
+
+#box41 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 4.8s;
+}
+
+#box42 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 4.9s;
+}
+
+#box43 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 5s;
+}
+
+#box44 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 5.1s;
+}
+
+#box45 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 5.2s;
+}
+
+#box46 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 5.3s;
+}
+
+#box47 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 5.4s;
+}
+
+#box48 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 5.5s;
+}
+
+#box49 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 5.6s;
+}
+
+#box50 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 5.7s;
+}
+
+#box51 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 5.8s;
+}
+
+#box52 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 5.9s;
+}
+
+#box53 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 6s;
+}
+
+#box54 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 6.1s;
+}
+
+#box55 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 6.2s;
+}
+
+#box56 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 6.3s;
+}
+
+#box57 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 6.4s;
+}
+
+#box58 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 6.5s;
+}
+
+#box59 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 6.6s;
+}
+
+#box60 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 6.7s;
+}
+
+#box61 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 6.8s;
+}
+
+#box62 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 6.9s;
+}
+
+#box63 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 7s;
+}
+
+#box64 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 7.1s;
+}
+
+#box65 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 7.2s;
+}
+
+#box66 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 7.3s;
+}
+
+#box67 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 7.4s;
+}
+
+#box68 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 7.5s;
+}
+
+#box69 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 7.6s;
+}
+
+#box70 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 7.7s;
+}
+
+#box71 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 7.8s;
+}
+
+#box72 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 7.9s;
+}
+
+#box73 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 8s;
+}
+
+#box74 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 8.1s;
+}
+
+#box75 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 8.2s;
+}
+
+#box76 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 8.3s;
+}
+
+#box77 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 8.4s;
+}
+
+#box78 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 8.5s;
+}
+
+#box79 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 8.6s;
+}
+
+#box80 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 8.7s;
+}
+
+#box81 {
+    animation: po 0.05s linear forwards, glow 1s ease-in-out;
+    animation-delay: 8.8s;
+}
